@@ -1,0 +1,157 @@
+<!-- Author: Michael Milstead / Mode87.com
+	 for Untame.net
+	 Twitter Bootstrap Tutorial
+	 Modal Contact Demo, 2013
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Twitter Bootstrap Modal Contact Form Demo</title>
+	<meta name="description" content="Creating Modal Window with Twitter Bootstrap">
+
+	<link href="assets/bootstrap.min.css" rel="stylesheet">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="assets/bootstrap.min.js"></script>
+    <script>
+		$(document).ready(function () {
+			$("input#submit").click(function(){
+				$.ajax({
+					type: "POST",
+					url: "process.php", // 
+					data: $('form.contact').serialize(),
+					success: function(msg){
+						$("#thanks").html(msg)
+						$("#form-content").modal('hide');	
+					},
+					error: function(){
+						alert("failure");
+					}
+				});
+			});
+		});
+    </script>
+
+	<style type="text/css">
+		body { margin: 50px; background: url(assets/bglight.png); }
+		.well { background: #fff; text-align: center; }
+		.modal { text-align: left; }
+	</style>
+
+</head>
+<body>
+
+<div class="container">
+	<div class="well well-large">
+		<h2>Twitter Bootstrap Modal Contact Form Demo</h2>
+		<div id="form-content" class="modal hide fade in" style="display: none;">
+			<div class="modal-header">
+				<a class="close" data-dismiss="modal">×</a>
+				<h3>Send me a message</h3>
+			</div> 
+			<div class="modal-body">
+				<form class="contact" name="contact">
+					<label class="label" for="name">Your Name</label><br>
+					<input type="text" name="name" class="input-xlarge"><br>
+					<label class="label" for="email">Your E-mail</label><br>
+					<input type="email" name="email" class="input-xlarge"><br>
+					<label class="label" for="message">Enter a Message</label><br>
+					<textarea name="message" class="input-xlarge"></textarea>
+				</form>
+			</div> 
+			<div class="modal-footer">
+				<input class="btn btn-success" type="submit" value="Send!" id="submit">
+				<a href="#" class="btn" data-dismiss="modal">Nah.</a>
+			</div>
+		</div>
+		<div id="thanks"><p><a data-toggle="modal" href="#form-content" class="btn btn-primary btn-large">Modal powers, activate!</a></p></div>
+	</div>
+</div> 
+
+
+
+
+
+<div class="col-sm-12" Id="Contact">
+        <h2 class="text-center">Contact Konocti Farms</h2>
+        <p class="text-center">info@konoctifarms.com</p>
+
+            <!-- Button trigger modal -->
+               <div class="text-center">
+               <button type="button" class="btn btn-info btn-lg btn-center" data-toggle="modal" data-target="#myModal-2">Contact</button>
+               
+               </div>
+            
+
+       
+
+
+        <div class="modal fade" id="myModal-2">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times;</button>
+                        
+                        <h4 class="modal-title">Send us a message!</h4>
+                      </div><!-- end modal-header -->
+                      <div class="modal-body">
+                        <h4>Patients applying for membership.</h4>
+                        
+                        <p>
+                            Please do one of the following.<br>
+                            1. Include your <a target="_blank" href="http://mmic.cdph.ca.gov/MMIC_Search.aspx">California state MMP ID number</a> in the message body.<br>
+                            2. Copy and paste your doctors recommendation into the message text field.<br>
+                            3. Email a copy of your doctors recommendation to<br> info@konoctifarms.com.
+                         </p>
+                        
+                     <!--   <h4>Popovers in a modal</h4>
+                        <a href="#" class="btn btn-danger pop" data-toggle="popover" data-placement="top" data-original-title="You clicked it!" data-content="I knew you would.">Don't click this button</a>
+                        
+                        <h4>Tooltips in a modal</h4>
+                        <a href="" data-original-title="Tooltip" rel="tooltip">This link</a> should have a tooltip, and so should <a href="#" data-original-title="Woohoo!" rel="tooltip">this one</a>! -->
+                        
+                        <hr>
+                        
+                      <!--  <p><small class="text-muted">PS. This form doesn't do anything. Just a heads up.</small></p> -->
+                        
+                        <form class="form-horizontal">
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label" for="inputName">Name</label>
+                            <div class="col-lg-10">
+                              <input class="form-control" id="inputName" placeholder="Name" type="text">
+                            </div>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label" for="inputEmail">Email</label>
+                            <div class="col-lg-10">
+                              <input class="form-control" id="inputEmail" placeholder="Email" type="email">
+                            </div>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label" for="inputMessage">Message</label>
+                            <div class="col-lg-10">
+                              <textarea class="form-control" id="inputMessage" placeholder="Message" rows="3"></textarea> <br>
+                             <button class="btn btn-success pull-right" type="submit">Send!</button> 
+                            </div>
+                          </div>
+                        </form>
+                      </div><!-- end modal-body -->
+                      
+                      <div class="modal-footer">
+
+                        <button class="btn btn-default" data-dismiss="modal" type="button">Close</button> 
+                 <!--  <button class="btn btn-primary" type="submit">Submit form</button> -->
+                      </div><!-- end modal-footer -->
+                    </div><!-- end modal-content -->
+                  </div><!-- end modal-dialog -->
+                </div><!-- end myModal -->
+
+
+
+            </div>
+
+</body>
+</html>
